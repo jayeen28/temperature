@@ -15,8 +15,10 @@ const loadData = () => {
 const showDataUi = data => {
     getId('country-name').innerText = data.name;
     const calculateTemp = Math.ceil(data.main.temp / 10);
-    getId('country-temperature').innerText = calculateTemp;
+    getId('country-temperature').innerText = `${calculateTemp}°C`;
     getId('weather-condition').innerText = data.weather[0].main;
     const url = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     getId('weather-icon').src = url;
+    getId('body').style.backgroundImage = `url('images/${data.weather[0].main}.jpg')`;
+    console.log(`url (images/${data.weather[0].main}.jpg)`);
 };
