@@ -13,5 +13,7 @@ const loadData = () => {
 
 const showDataUi = data => {
     getId('country-name').innerText = data.name;
-
+    const calculateTemp = Math.ceil(data.main.temp / 10);
+    getId('country-temperature').innerText = calculateTemp;
+    getId('weather-condition').innerText = data.weather[0].main;
 };
